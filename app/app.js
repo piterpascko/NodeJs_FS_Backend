@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const userRouter = require('../router/userRouter');
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.get("/", (req, res) => {
 
 // routers 
 
-// app.use("/register", registrationRouter)
+app.use("/users", userRouter)
 
 // bad url or error we can handle 
 // with middleware
