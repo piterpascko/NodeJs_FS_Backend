@@ -1,58 +1,23 @@
 const express = require("express");
+const User = require("../models/userModel");
+const { findUser, saveUser } = require("../db/db");
+const crypto = require('crypto')
+
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-    res.status(200).json({
-        message: "Successful - GET",
-        metadata: {
-            hostname: req.hostname,
-            method: req.method
-        }
-    });
+router.post("/register", (req, res, next) => {
+    // findUser
+    // if the user exist 
+    // return response that says already exist
+    // else 
+    // encrypt password 
+    // set the password with the encrupted password 
+    // save the user to the db
 });
 
-router.get("/:id", (req, res, next) => {
-    res.status(200).json({
-        message: "Successful - GET by ID",
-        metadata: {
-            hostname: req.hostname,
-            method: req.method,
-            id: req.params.id
-        }
-    });
-});
-
-router.post("/", (req, res, next) => {
-    res.status(201).json({
-        message: "Successful - POST",
-        metadata: {
-            name: req.body.name,
-            hostname: req.hostname,
-            method: req.method
-        }
-    });
-});
-
-router.put("/:id", (req, res, next) => {
-    res.status(200).json({
-        message: "Successful - PUT by ID",
-        metadata: {
-            hostname: req.hostname,
-            method: req.method,
-            id: req.params.id
-        }
-    });
-});
-
-router.delete("/:id", (req, res, next) => {
-    res.status(200).json({
-        message: "Successful - DELETE by ID",
-        metadata: {
-            hostname: req.hostname,
-            method: req.method,
-            id: req.params.id
-        }
-    });
+router.post("/login", (req, res, next) => {
+    // findUser
+    // check encrypted passwords
 });
 
 module.exports = router;
